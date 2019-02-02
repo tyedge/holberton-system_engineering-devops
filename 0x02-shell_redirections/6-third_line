@@ -1,2 +1,2 @@
 #!/bin/bash
-cat ./README.md | tail --lines=+3 | head -n1
+cat ./iacta | tail --lines=+3 | head -n1
