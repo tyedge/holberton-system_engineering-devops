@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #This script displays a partial name for the contents of the current directory
-for filename in {$ls}
+for filename in *
 do
-    echo 
+    echo "$filename" | cut -d'-' -f2-
 done
