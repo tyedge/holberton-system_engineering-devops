@@ -2,8 +2,7 @@
 #This script creates a pid file and display To infinity and beyond
 
 SAFE_FILE=/var/run/holbertonscript.pid
-long_running_tool &
-echo "$!" > $SAFE_FILE
+echo "$$" > $SAFE_FILE
 cleaner() {
     rm $SAFE_FILE
     exit
