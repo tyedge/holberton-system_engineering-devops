@@ -3,7 +3,7 @@
 
 SAFE_FILE=/var/run/holbertonscript.pid
 long_running_tool &
-echo "$!" > $SAFE_FILE && chmod +x
+echo "$!" > $SAFE_FILE
 cleaner() {
     rm $SAFE_FILE
     exit
