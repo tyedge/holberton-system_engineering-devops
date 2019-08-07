@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#This scripts configures an nginx web server on a remote server
+ssh ubuntu@34.74.119.227
+sudo apt-get update
+sudo apt-get install nginx -y
+sudo ufw enable
+sudo ufw allow 'OpenSSH'
+sudo ufw allow 'Nginx HTTP'
+sudo echo 'Holberton School' | sudo tee '/var/www/html/index.nginx-debian.html'
+service nginx restart
