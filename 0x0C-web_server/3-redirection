@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
-#This scripts configures an nginx web server on a remote server
+#This scripts configures a redirection
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo echo 'Holberton School' | sudo tee '/var/www/html/index.nginx-debian.html'
-cat > '/etc/nginx/sites-enabled/default' <<EOF
+cat > '/etc/nginx/sites-available/default' <<EOF
 server {
+
+       server_name .tyedge.tech;
 
        listen 80;
        listen [::]:80;
-
-       server_name tyedge.tech;
 
        root /var/www/html;
        index index.nginx-debian.html;
 
        location /redirect_me {
-              return 301 https://example.com;
+              rewrite ^/redirect_me$ https://example.com permanent;
        }
 }
 EOF
