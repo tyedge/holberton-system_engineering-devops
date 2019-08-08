@@ -15,7 +15,7 @@ server {
        index index.nginx-debian.html;
 
        location /redirect_me {
-              rewrite ^/redirect_me$ https://example.com permanent;
+              return 301 https://example.com;
        }
 }
 EOF
