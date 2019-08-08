@@ -3,7 +3,7 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo echo 'Holberton School' | sudo tee '/var/www/html/index.nginx-debian.html'
-cat > '/etc/nginx/sites-enabled/default' << 'EOF'
+cat > '/etc/nginx/sites-enabled/default' <<EOF
 server {
 
        server_name .tyedge.tech;
