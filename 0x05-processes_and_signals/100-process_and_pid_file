@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#This script creates a pid file and display To infinity and beyond
+
+SAFE_FILE=/var/run/holbertonscript.pid
+echo "$$" > $SAFE_FILE
+cleaner() {
+    rm $SAFE_FILE
+    exit
+}
+trap "echo I hate the kill command" SIGTERM
+trap "echo Y U no love me?!" SIGINT
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
+trap clean SIGQUIT SIGTERM
