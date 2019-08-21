@@ -6,18 +6,22 @@ sudo echo 'Holberton School' | sudo tee '/var/www/html/index.nginx-debian.html'
 sudo echo 'Ceci n'\''est pas une page' | sudo tee '/var/www/html/404.html'
 cat > '/etc/nginx/sites-available/default' <<EOF
 server {
-       server_name .tyedge.tech;
-       listen 80;
-       listen [::]:80;
-       add_header X-Served-By \$hostname;
+
+       listen 80 default_server;
+       listen [::]:80 default_server ipv6only=on;
+
+       add_header X-Served-By $hostname;
+
        root /var/www/html;
-       index index.nginx-debian.html;
+       index index.html;
+
        error_page 404 /404.html;
        location /404.html {
                 internal;
        }
+
        location /redirect_me {
-              rewrite ^/redirect_me$ https://example.com permanent;
+              return 301 https://example.com;
        }
 }
 EOF
