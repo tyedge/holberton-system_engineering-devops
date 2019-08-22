@@ -2,15 +2,14 @@
 #This scripts configures a new server with a custom HTTP response header
 sudo apt-get update
 sudo apt-get -y install nginx
-sudo echo 'Holberton School' | sudo tee '/var/www/html/index.nginx-debian.html'
+sudo echo 'Holberton School' | sudo tee '/var/www/html/index.html'
 sudo echo 'Ceci n'\''est pas une page' | sudo tee '/var/www/html/404.html'
 cat > '/etc/nginx/sites-available/default' <<EOF
 server {
+       listen 80;
+       listen [::]:80;
 
-       listen 80 default_server;
-       listen [::]:80 default_server ipv6only=on;
-
-       add_header X-Served-By $hostname;
+       add_header X-Served-By \$hostname;
 
        root /var/www/html;
        index index.html;
@@ -26,4 +25,4 @@ server {
 }
 EOF
 service nginx reload
-service nginx start
+service nginx restart
