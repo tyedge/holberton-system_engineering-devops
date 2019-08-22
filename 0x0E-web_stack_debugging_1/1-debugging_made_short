@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# This script automates the config of port 80
-sudo service nginx stop
-cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo nginx -t
-sudo service nginx restart

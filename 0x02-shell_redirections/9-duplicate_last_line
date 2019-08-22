@@ -1,2 +1,0 @@
-#!/bin/bash
-echo -e $(tail -1 iacta) >> iacta
