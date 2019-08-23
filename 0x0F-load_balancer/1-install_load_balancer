@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script installs and configures HAproxy on a load balancer server
 sudo apt-get update
 sudo apt-get -y install haproxy
 cat >> /etc/haproxy/haproxy.cfg <<EOF
