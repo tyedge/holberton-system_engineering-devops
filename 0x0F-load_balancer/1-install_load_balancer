@@ -1,1 +1,22 @@
 #!/usr/bin/env bash
+sudo apt-get update
+sudo apt-get -y install haproxy
+cat >> /etc/haproxy/haproxy.cfg <<EOF
+frontend Local_Server
+        bind *:80
+        default_backend My_Web_Servers
+
+backend My_Web_Servers
+        stats enable
+        stats uri /haproxy?stats
+        balance roundrobin
+        option httpclose
+        option forwardfor
+        server 670-web-01 34.74.119.227:80 check
+        server 670-web-02 35.196.155.171:80 check
+EOF
+sudo service haproxy restart
+sudo apt-get update
+sudo apt-get install -y rsyslog
+sudo service rsyslog start
+sudo service haproxy restart
