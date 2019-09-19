@@ -22,7 +22,7 @@ if __name__ == "__main__":
         if td.get('completed'):
             td_done.append(td)
     td_count = len(td_done)
-    print('Employee {} is done with tasks ({}/{}):'.format(emp_nm, td_count,
-                                                           td_total))
+    print('Employee {} is done with tasks({}/{}):'.format(emp_nm, td_count,
+                                                          td_total))
     for td in td_done:
-        print('\t{}'.format(td.get('title')))
+        print('\t {}'.format(td.get('title')))
